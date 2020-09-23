@@ -6,19 +6,13 @@ let {setupInput} = require("./input");
 console.log('Connecting ...');
 let serv = connect();
 
-setupInput();
+setupInput(serv);
 
 
 serv.on('data', (data) => {
   console.log('Server says: ', data);
+  process.exit();
 });
 serv.on('connect', () => {
   serv.write("Name: BIG");
 });
-
-setTimeout(() => {
-  serv.write("Move: up");
-}, 50);
-setTimeout(() => {
-  serv.write("Move: left");
-}, 100);
