@@ -7,3 +7,5 @@ let serv = connect();
 serv.on('data', (data) => {
   console.log('Server says: ', data);
 });
+
+serv.write("Name: BIG");
