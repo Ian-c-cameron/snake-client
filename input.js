@@ -20,15 +20,27 @@ const handleUserInput = (key) => {
   if (key === 'a') {
     serv.write("Move: left");
   }
+  if (key === 'j') {
+    serv.write("Say: You Sssssuk!");
+  }
+  if (key === 'k') {
+    serv.write("Say: Ssssmokin!");
+  }
+  if (key === 'l') {
+    serv.write("Say: Too Sssslow!!");
+  }
+  if (key === 'i') {
+    serv.write("Say: Ssso Ssssad!");
+  }
 };
 
 const setupInput = function(connection) {
+  serv = connection;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
   stdin.resume();
 
-  serv = connection;
   stdin.on('data', handleUserInput);
   return stdin;
 };
